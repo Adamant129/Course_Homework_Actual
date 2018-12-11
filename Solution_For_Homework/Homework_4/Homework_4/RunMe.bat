@@ -1,0 +1,1 @@
+nunit3-console Homework_4.dll --params=Browser='Chrome'
