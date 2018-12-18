@@ -3,8 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework_3", "Solution_For_Homework\Homework_3\Solution_For_Homework.Homework_3\Homework_3.csproj", "{78174EEC-8244-45FB-876F-E4688E6115FC}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework_4", "Solution_For_Homework\Homework_4\Homework_4\Homework_4.csproj", "{EE8FEE37-5201-49A6-8D50-08534EE98A3E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Homework_5", "Solution_For_Homework\Homework_5\Homework_5\Homework_5.csproj", "{FB40D8C8-6053-48CB-B8E0-0471E2DCC08A}"
@@ -23,10 +21,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{78174EEC-8244-45FB-876F-E4688E6115FC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{78174EEC-8244-45FB-876F-E4688E6115FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{78174EEC-8244-45FB-876F-E4688E6115FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{78174EEC-8244-45FB-876F-E4688E6115FC}.Release|Any CPU.Build.0 = Release|Any CPU
 		{EE8FEE37-5201-49A6-8D50-08534EE98A3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EE8FEE37-5201-49A6-8D50-08534EE98A3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE8FEE37-5201-49A6-8D50-08534EE98A3E}.Release|Any CPU.ActiveCfg = Release|Any CPU

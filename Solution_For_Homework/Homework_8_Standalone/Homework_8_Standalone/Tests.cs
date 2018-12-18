@@ -1,23 +1,33 @@
 ﻿using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
+using OpenQA.Selenium.Interactions;
 using System;
+using System.IO;
+using System.Threading;
 
 namespace Homework_8_Standalone
 {
     public class Tests
     {
-
         IWebDriver driver;
         IJavaScriptExecutor jexec;
+        string downloadDirectory;
+
 
         [SetUp]
         public void SetUp()
         {
-            //P.S. everything above should be executed headless.
+            downloadDirectory = Path.GetFullPath(Path.Combine(TestContext.CurrentContext.TestDirectory, "DownloadedPhotos"));
+
+            if (!Directory.Exists(downloadDirectory))
+            {
+                Directory.CreateDirectory(downloadDirectory);
+            }
+
             var chromeOptions = new ChromeOptions();
             chromeOptions.AddArguments("start-maximized");//"headless",
-            chromeOptions.AddUserProfilePreference("download.default_directory", Environment.SpecialFolder.Desktop);
+            chromeOptions.AddUserProfilePreference("download.default_directory", downloadDirectory);
 
             driver = new ChromeDriver(chromeOptions);
             jexec = (IJavaScriptExecutor)driver;
@@ -34,17 +44,25 @@ namespace Homework_8_Standalone
         {
             driver.Url = "https://unsplash.com/search/photos/test";
 
-            var x = 0;
-            var y = 0;
-            var scrollYAmount = 200;
+            var lastElementLocator = By.XPath("(//figure[@itemprop='image'])[last()]");
+            var elementsGrid = By.XPath("//figure[@itemprop='image']");
+            var allScrolledDistance = 0;
+            var temp = Convert.ToInt32(jexec.ExecuteScript("return document.body.scrollHeight"));
 
-            while (y != Convert.ToInt32(jexec.ExecuteScript("return window.pageYOffset")))
+
+            while (allScrolledDistance != temp)
             {
-                y += scrollYAmount;
-                jexec.ExecuteScript($"window.scrollBy({x}, {y})");
+                jexec.ExecuteScript("window.scrollTo(0,document.body.scrollHeight);");
+                Thread.Sleep(2000);
+                var scrolledDistance = Convert.ToInt32(jexec.ExecuteScript("return document.body.scrollHeight"));
+                allScrolledDistance = temp;
+                temp = scrolledDistance;
             }
 
-            //Assert.True(promotionslabel.Displayed);
+            driver.FindElement(lastElementLocator).Click();
+            driver.FindElement(By.XPath("//span[text()='Download free']")).Click();
+
+            Thread.Sleep(3000);
         }
     }
 }
