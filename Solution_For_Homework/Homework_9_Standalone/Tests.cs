@@ -4,6 +4,7 @@ using NUnit.Framework;
 using OpenQA.Selenium;
 using Bogus;
 using Homework_9_Standalone.Models;
+using System.Linq;
 
 namespace Homework_9_Standalone
 {

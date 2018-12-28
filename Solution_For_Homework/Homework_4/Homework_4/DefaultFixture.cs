@@ -4,8 +4,6 @@ using Microsoft.Extensions.Configuration;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
-using System.Linq;
-using System.Reflection;
 
 namespace Homework_4
 {

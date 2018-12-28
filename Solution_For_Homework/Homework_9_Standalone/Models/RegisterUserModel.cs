@@ -12,6 +12,9 @@ namespace Homework_9_Standalone.Models
         private static Faker<RegisterUserModel> rules; 
         public RegisterUserModel()
         {
+            var rfules = new Faker<RegisterUserModel>().Generate();
+
+
             rules = new Faker<RegisterUserModel>().
                 RuleFor(u => u.Email, f => f.Random.Replace("*****@gmail.com")).
                 RuleFor(u => u.Name, f => f.Random.Word()).
