@@ -1,21 +1,13 @@
 ﻿using Bogus;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Homework_9_Standalone.Models
 {
     public class RegisterUserModel
     {
-        private static Faker<RegisterUserModel> rules; 
+        private static Faker<RegisterUserModel> _rules; 
         public RegisterUserModel()
         {
-            var rfules = new Faker<RegisterUserModel>().Generate();
-
-
-            rules = new Faker<RegisterUserModel>().
+            _rules = new Faker<RegisterUserModel>().
                 RuleFor(u => u.Email, f => f.Random.Replace("*****@gmail.com")).
                 RuleFor(u => u.Name, f => f.Random.Word()).
                 RuleFor(u => u.Surname, f => f.Random.Word()).
@@ -30,7 +22,7 @@ namespace Homework_9_Standalone.Models
 
         public RegisterUserModel GenerateFakeUser()
         {
-            return rules.Generate();
+            return _rules.Generate();
         }
     }
 }
