@@ -75,7 +75,7 @@ namespace Homework_4
 
             driver.Close();
 
-            Directory.Move(createdFolder, Path.Combine(destinationFolder, folderName));
+            //Directory.Move(createdFolder, Path.Combine(destinationFolder, folderName));
         }
     }
 }
