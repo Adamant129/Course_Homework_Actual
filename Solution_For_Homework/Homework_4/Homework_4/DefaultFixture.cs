@@ -35,7 +35,9 @@ namespace Homework_4
                     driver = new ChromeDriver();
                     break;
             }
-           
+            var options = new ChromeOptions();
+            options.AddArgument("no-sandbox");
+
             destinationFolder = Path.GetFullPath(config.GetValue<string>("destinationFolder"));
             baseDir = TestContext.CurrentContext.WorkDirectory;
             createdFolder = Path.Combine(baseDir, folderName);
